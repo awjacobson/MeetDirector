@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+$.getJSON( "/skaters", function( data ) {
+	alert(data);
+	  var items = [];
+	  $.each( data, function( key, val ) {
+	    items.push( "<li id='" + key + "'>" + val + "</li>" );
+	  });
+	 
+	  $( "<ul/>", {
+	    "class": "my-new-list",
+	    html: items.join( "" )
+	  }).appendTo( "body" );
+	});
+</script>
+</head>
+<body>
+	<div id="skaters"/>
+</body>
+</html>
