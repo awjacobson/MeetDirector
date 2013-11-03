@@ -7,5 +7,7 @@ import org.jcssc.meetdirector.bean.Skater;
 public interface ISkaterDAO
 {
     public List<Skater> getSkaters();
-    public Skater getSkaterById( String id );
+    public Skater getSkaterById( long id );
+    public Skater updateSkater( Skater skater );
+    public Skater addSkater( Skater skater );
 }

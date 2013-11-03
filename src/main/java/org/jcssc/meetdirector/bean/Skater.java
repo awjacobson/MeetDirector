@@ -1,12 +1,14 @@
 package org.jcssc.meetdirector.bean;
 
+import java.sql.Date;
+
 public class Skater extends BaseBean
 {
     private int id;
     private String lastName;
     private String firstName;
     private String gender;
-    private String date;
+    private Date birthDate;
     private String skaterClass;
     private String ussNumber;
     private int time500;
@@ -54,14 +56,14 @@ public class Skater extends BaseBean
         this.gender = gender;
     }
 
-    public String getDate()
+    public Date getBirthDate()
     {
-        return date;
+        return birthDate;
     }
 
-    public void setDate( String date )
+    public void setBirthDate( Date birthDate )
     {
-        this.date = date;
+        this.birthDate = birthDate;
     }
 
     public String getSkaterClass()
@@ -128,8 +130,8 @@ public class Skater extends BaseBean
     public String toString()
     {
         return "Skater [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName
-                + ", gender=" + gender + ", date=" + date + ", skaterClass=" + skaterClass
-                + ", ussNumber=" + ussNumber + ", time500=" + time500 + ", time333=" + time333
-                + ", time111=" + time111 + ", comments=" + comments + "]";
+                + ", gender=" + gender + ", birthDate=" + birthDate + ", skaterClass="
+                + skaterClass + ", ussNumber=" + ussNumber + ", time500=" + time500 + ", time333="
+                + time333 + ", time111=" + time111 + ", comments=" + comments + "]";
     }
 }
