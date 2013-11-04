@@ -6,8 +6,9 @@ import org.jcssc.meetdirector.bean.Skater;
 
 public interface ISkaterDAO
 {
-    public List<Skater> getSkaters();
-    public Skater getSkaterById( long id );
-    public Skater updateSkater( Skater skater );
-    public Skater addSkater( Skater skater );
+    public List<Skater> findAll();
+    public Skater findById( long id );
+    public Skater update( Skater skater );
+    public Skater add( Skater skater );
+    public void delete( Skater skater );
 }
