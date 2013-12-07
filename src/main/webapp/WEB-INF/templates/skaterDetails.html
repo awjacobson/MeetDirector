@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1"/>
+	<title>Meet Director - Skater List</title>
+	<link type="text/css" rel="stylesheet" href="css/default.css"/>
+</head>
+<body>
+	<div th:replace="header::header"></div>
+	<form action="#" th:action="@{/skaterDetails}" th:object="${skater}" method="post">
+		<h1>Skater Detail</h1>
+		<div>
+			<label for="firstName">First Name</label>
+			<input type="text" th:field="*{firstName}" required="required"/>
+		</div>
+		<div>
+			<label for="lastName">Last Name</label>
+			<input type="text" th:field="*{lastName}" required="required"/>
+		</div>
+		<div>
+			<label for="birthDate">Birth Date</label>
+			<input type="date" th:field="*{birthDate}" required="required"/>
+		</div>
+		<div>
+			<label for="ussNumber">USS Number</label>
+			<input type="number" th:field="*{ussNumber}"/>
+		</div>
+		<div>
+			<label for="club">Club</label>
+			<select>
+			</select>
+		</div>
+		<div>
+			<input type="submit" value="save"/>
+		</div>
+	</form>
+	<div th:replace="footer::footer"></div>
+</body>
+</html>

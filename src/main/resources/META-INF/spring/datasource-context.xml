@@ -15,6 +15,18 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 
+	<bean id="clubDAO" class="org.jcssc.meetdirector.dao.impl.JdbcClubDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="meetDAO" class="org.jcssc.meetdirector.dao.impl.JdbcMeetDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="rinkDAO" class="org.jcssc.meetdirector.dao.impl.JdbcRinkDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<bean id="skaterDAO" class="org.jcssc.meetdirector.dao.impl.JdbcSkaterDAO">
 		<property name="dataSource" ref="dataSource" />
 	</bean>

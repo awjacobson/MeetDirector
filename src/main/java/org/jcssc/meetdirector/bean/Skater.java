@@ -1,7 +1,14 @@
 package org.jcssc.meetdirector.bean;
 
-import java.sql.Date;
+import java.util.Date;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.Years;
+
+/**
+ *
+ */
 public class Skater extends BaseBean
 {
     private int id;
@@ -15,6 +22,7 @@ public class Skater extends BaseBean
     private int time333;
     private int time111;
     private String comments;
+    private Club club;
 
     public int getId()
     {
@@ -124,6 +132,30 @@ public class Skater extends BaseBean
     public void setComments( String comments )
     {
         this.comments = comments;
+    }
+
+    public Club getClub()
+    {
+        return club;
+    }
+
+    public void setClub( Club club )
+    {
+        this.club = club;
+    }
+
+    /**
+     * Calculates the age of this skater as of July 1st of the current year.
+     *
+     * @return Age (in years) of the skater
+     */
+    public int getAge()
+    {
+        final DateTimeZone timeZone = DateTimeZone.forID( "America/Chicago" );
+        final DateTime now = new DateTime( DateTime.now( timeZone ).getYear(), 7, 1, 0, 0 ); // midnight of July 1st of current year
+        final DateTime birthdate = new DateTime( getBirthDate() );
+        final Years age = Years.yearsBetween( birthdate, now );
+        return age.getYears();
     }
 
     @Override

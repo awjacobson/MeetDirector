@@ -18,17 +18,17 @@ public class SkaterService
         return skaterRepository.findAll();
     }
 
-    public Skater findById( long id )
+    public Skater findById( final long id )
     {
         return skaterRepository.findById( id );
     }
 
-    public Skater add( Skater skater )
+    public Skater add( final Skater skater )
     {
         return skaterRepository.add( skater );
     }
 
-    public Skater update( Skater skater )
+    public Skater update( final Skater skater )
     {
         final long id = skater.getId();
         final Skater oldSkater = findById( id );
@@ -46,7 +46,7 @@ public class SkaterService
         return skaterRepository.update( skater );
     }
 
-    public void delete( Skater skater )
+    public void delete( final Skater skater )
     {
         final long id = skater.getId();
         final Skater oldSkater = findById( id );

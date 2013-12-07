@@ -1,9 +1,14 @@
 package org.jcssc.meetdirector.bean;
 
+/**
+ * The Club class represents a club such as Jefferson City Speed Skating Club
+ * (JCSSC), St. Louis Speed Skating (STSS), etc.
+ */
 public class Club extends BaseBean
 {
     private int id;
-    private String name;
+    private String longName;
+    private String shortName;
 
     public int getId()
     {
@@ -15,13 +20,23 @@ public class Club extends BaseBean
         this.id = id;
     }
 
-    public String getName()
+    public String getLongName()
     {
-        return name;
+        return longName;
     }
 
-    public void setName( String name )
+    public void setLongName( String longName )
     {
-        this.name = name;
+        this.longName = longName;
+    }
+
+    public String getShortName()
+    {
+        return shortName;
+    }
+
+    public void setShortName( String shortName )
+    {
+        this.shortName = shortName;
     }
 }

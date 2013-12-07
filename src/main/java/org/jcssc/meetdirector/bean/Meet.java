@@ -1,26 +1,62 @@
 package org.jcssc.meetdirector.bean;
 
+import java.util.Date;
+
 public class Meet extends BaseBean
 {
     private int id;
     private String name;
-    // TODO dates and times
-    // TODO location
+    private Date startDate;
+    private Date endDate;
+    private Rink rink;
 
     public int getId()
     {
         return id;
     }
+
     public void setId( int id )
     {
         this.id = id;
     }
+
     public String getName()
     {
         return name;
     }
+
     public void setName( String name )
     {
         this.name = name;
+    }
+
+    public Date getStartDate()
+    {
+        return startDate;
+    }
+
+    public void setStartDate( Date startDate )
+    {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate()
+    {
+        return endDate;
+    }
+
+    public void setEndDate( Date endDate )
+    {
+        this.endDate = endDate;
+    }
+
+    public Rink getRink()
+    {
+        return rink;
+    }
+
+    public void setRink( Rink rink )
+    {
+        this.rink = rink;
     }
 }

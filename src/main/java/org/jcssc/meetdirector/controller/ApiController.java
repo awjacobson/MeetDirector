@@ -2,7 +2,10 @@ package org.jcssc.meetdirector.controller;
 
 import java.util.List;
 
+import org.jcssc.meetdirector.bean.Club;
 import org.jcssc.meetdirector.bean.Skater;
+import org.jcssc.meetdirector.service.ClubService;
+import org.jcssc.meetdirector.service.RinkService;
 import org.jcssc.meetdirector.service.SkaterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +24,12 @@ public class ApiController
 
     @Autowired
     private SkaterService skaterService;
+
+    @Autowired
+    private ClubService clubService;
+
+    @Autowired
+    private RinkService rinkService;
 
     @RequestMapping(value = "/api/skaters", method = RequestMethod.GET)
     public @ResponseBody List<Skater> getSkaters()
@@ -65,4 +74,49 @@ public class ApiController
 
         return skaterService.add( skater );
     }
+
+    @RequestMapping(value = "/api/clubs", method = RequestMethod.GET)
+    public @ResponseBody List<Club> getClubs()
+    {
+        if( logger.isDebugEnabled() )
+        {
+            logger.debug( "getClubs" );
+        }
+
+        return clubService.findAll();
+    }
+
+    @RequestMapping(value = "/api/club/{id}", method = RequestMethod.GET)
+    public @ResponseBody Club getClub( @PathVariable("id") long id )
+    {
+        if( logger.isDebugEnabled() )
+        {
+            logger.debug( "getClub: id={}", id );
+        }
+
+        return clubService.findById( id );
+    }
+
+    @RequestMapping(value = "/api/club", method = RequestMethod.POST)
+    public @ResponseBody Club updateClub( @RequestBody Club club )
+    {
+        if( logger.isDebugEnabled() )
+        {
+            logger.debug( "updateClub: club={}", club );
+        }
+
+        return clubService.update( club );
+    }
+
+    @RequestMapping(value = "/api/club", method = RequestMethod.PUT)
+    public @ResponseBody Club addClub( @RequestBody Club club )
+    {
+        if( logger.isDebugEnabled() )
+        {
+            logger.debug( "addClub: club={}", club );
+        }
+
+        return clubService.add( club );
+    }
+
 }

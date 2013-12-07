@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1"/>
+	<title>Meet Director - Skater List</title>
+	<link type="text/css" rel="stylesheet" href="../css/default.css"/>
+</head>
+<body>
+	<div th:replace="header::header"></div>
+	<form action="#">
+		<h1>Skater List</h1>
+		<table class="spread">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Club</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="skater:${skaterList}">
+					<td>
+						<a href="skaterDetails.html"
+							th:href="@{/skaterDetails(id=${skater.id})}"
+							th:text="${skater.lastName} + ', ' + ${skater.firstName}">Jacobson, Aaron</a>
+					</td>
+					<td th:text="${skater.age}"></td>
+					<td th:text="${skater.club.shortName}">JCSSC</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="submit" value="add"/>
+	</form>
+	<div th:replace="footer::footer"></div>
+</body>
+</html>
